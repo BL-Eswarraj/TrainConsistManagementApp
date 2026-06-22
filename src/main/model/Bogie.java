@@ -1,34 +1,37 @@
 package main.model;
 
-public class Bogie {
+public class GoodsBogie {
 
-    private String name;
-    private String type;
-    private int capacity;
+    private String bogieId;
+    private String bogieType;
+    private String cargoType;
 
-    public Bogie(String name, String type, int capacity) {
-        this.name = name;
-        this.type = type;
-        this.capacity = capacity;
+    public GoodsBogie(String bogieId,
+                      String bogieType,
+                      String cargoType) {
+        this.bogieId = bogieId;
+        this.bogieType = bogieType;
+        this.cargoType = cargoType;
     }
 
-    public String getName() {
-        return name;
+    public String getBogieId() {
+        return bogieId;
     }
 
-    public String getType() {
-        return type;
+    public String getBogieType() {
+        return bogieType;
     }
 
-    public int getCapacity() {
-        return capacity;
+    public String getCargoType() {
+        return cargoType;
     }
 
     @Override
     public String toString() {
-        return "Bogie{name='" + name +
-                "', type='" + type +
-                "', capacity=" + capacity +
+        return "GoodsBogie{" +
+                "bogieId='" + bogieId + '\'' +
+                ", bogieType='" + bogieType + '\'' +
+                ", cargoType='" + cargoType + '\'' +
                 '}';
     }
 }
