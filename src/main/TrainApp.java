@@ -1,47 +1,34 @@
 package main;
 
-import main.model.Bogie;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TrainApp {
 
     public static void main(String[] args) {
         System.out.println("=== Train Consist Management App ===");
-        List<Bogie> bogies = new ArrayList<>();
-        bogies.add(new Bogie(
-                "Sleeper",
-                "Passenger",
-                72));
-        bogies.add(new Bogie(
-                "AC Chair",
-                "Passenger",
-                56));
-        bogies.add(new Bogie(
-                "First Class",
-                "Passenger",
-                24));
-        bogies.add(new Bogie(
-                "Cargo A",
-                "Goods",
-                100));
-        bogies.add(new Bogie(
-                "Cargo B",
-                "Goods",
-                120));
+        String trainId = "TRN-1234";
+        String cargoCode = "PET-AB";
+        String trainIdRegex = "TRN-\\d{4}";
+        String cargoCodeRegex = "PET-[A-Z]{2}";
 
-        Map<String, List<Bogie>> groupedBogies =
-                bogies.stream()
-                        .collect(Collectors.groupingBy(
-                                Bogie::getType));
+        Pattern trainPattern = Pattern.compile(trainIdRegex);
+        Pattern cargoPattern = Pattern.compile(cargoCodeRegex);
 
-        System.out.println("\nGrouped Bogies:");
-        groupedBogies.forEach((type, bogieList) -> {
-            System.out.println("\n" + type + " Bogies:");
-            bogieList.forEach(System.out::println);
-        });
+        Matcher trainMatcher = trainPattern.matcher(trainId);
+        Matcher cargoMatcher = cargoPattern.matcher(cargoCode);
+
+        System.out.println("\nTrain ID : " + trainId);
+        if (trainMatcher.matches()) {
+            System.out.println("Train ID is Valid");
+        } else {
+            System.out.println("Train ID is Invalid");
+        }
+        System.out.println("\nCargo Code : " + cargoCode);
+        if (cargoMatcher.matches()) {
+            System.out.println("Cargo Code is Valid");
+        } else {
+            System.out.println("Cargo Code is Invalid");
+        }
     }
 }
