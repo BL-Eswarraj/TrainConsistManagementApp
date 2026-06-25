@@ -3,7 +3,7 @@ package main;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TrainConsistManagementApp {
+public class TrainApp {
 
     public static void main(String[] args) {
         System.out.println("=== Train Consist Management App ===");
