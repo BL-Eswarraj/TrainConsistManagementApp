@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class TrainConsistManagementApp {
+public class TrainApp {
 
     public static void main(String[] args) {
         System.out.println("=== Train Consist Management App ===");
